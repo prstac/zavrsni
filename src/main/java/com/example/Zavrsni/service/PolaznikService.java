@@ -16,7 +16,7 @@ public class PolaznikService {
 
     private final PolaznikRepository polaznikRepository;
 
-    public Optional<PolaznikDTO> findByID(Integer id) {
+    public Optional<PolaznikDTO> findByID(Long id) {
         return polaznikRepository.findById(id).map(PolaznikDTO::new);
     }
 
@@ -28,7 +28,7 @@ public class PolaznikService {
         return Optional.of(new PolaznikDTO(polaznikRepository.save(new Polaznik(polaznikDTO))));
     }
 
-    public Optional<PolaznikDTO> update(Integer id, PolaznikDTO updatedPolaznikDTO) {
+    public Optional<PolaznikDTO> update(Long id, PolaznikDTO updatedPolaznikDTO) {
         Optional<Polaznik> polaznikDTOOptional = polaznikRepository.findById(id);
 
         if (polaznikDTOOptional.isPresent()) {
@@ -42,7 +42,7 @@ public class PolaznikService {
         }
     }
 
-    public void deleteB(Integer id) {
+    public void deleteB(Long id) {
         Optional<Polaznik> polaznikOptional = polaznikRepository.findById(id);
         polaznikOptional.ifPresent(polaznikRepository::delete);
     }

@@ -25,7 +25,7 @@ public class PolaznikController {
     }
 
     @GetMapping("{code}")
-    public PolaznikDTO getByID(@PathVariable final Integer id) {
+    public PolaznikDTO getByID(@PathVariable final Long id) {
         return polaznikService.findByID(id)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Polaznik was not found by that code")
@@ -40,7 +40,7 @@ public class PolaznikController {
     }
 
     @PutMapping("{code}")
-    public PolaznikDTO update(@PathVariable Integer code, @Valid @RequestBody final PolaznikDTO updatedPolaznikDTO){
+    public PolaznikDTO update(@PathVariable Long code, @Valid @RequestBody final PolaznikDTO updatedPolaznikDTO){
         return polaznikService.update(code, updatedPolaznikDTO)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Polaznik was not found by that code")
@@ -49,7 +49,7 @@ public class PolaznikController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{code}")
-    public void delete(@PathVariable Integer code){
+    public void delete(@PathVariable Long code){
         polaznikService.deleteB(code);
     }
 

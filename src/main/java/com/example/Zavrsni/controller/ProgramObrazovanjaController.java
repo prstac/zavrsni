@@ -25,7 +25,7 @@ public class ProgramObrazovanjaController {
     }
 
     @GetMapping("{code}")
-    public ProgramObrazovanjaDTO getByID(@PathVariable final Integer id) {
+    public ProgramObrazovanjaDTO getByID(@PathVariable final Long id) {
         return programObrazovanjaService.findByID(id)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "ProgramObrazovanja was not found by that code")
@@ -40,7 +40,7 @@ public class ProgramObrazovanjaController {
     }
 
     @PutMapping("{code}")
-    public ProgramObrazovanjaDTO update(@PathVariable Integer code, @Valid @RequestBody final ProgramObrazovanjaDTO updatedProgramObrazovanjaDTO){
+    public ProgramObrazovanjaDTO update(@PathVariable Long code, @Valid @RequestBody final ProgramObrazovanjaDTO updatedProgramObrazovanjaDTO){
         return programObrazovanjaService.update(code, updatedProgramObrazovanjaDTO)
                 .orElseThrow(
                         () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "ProgramObrazovanja was not found by that code")
@@ -49,7 +49,7 @@ public class ProgramObrazovanjaController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{code}")
-    public void delete(@PathVariable Integer code){
+    public void delete(@PathVariable Long code){
         programObrazovanjaService.deleteB(code);
     }
 

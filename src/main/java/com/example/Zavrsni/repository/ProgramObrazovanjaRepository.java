@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Primary
-public interface ProgramObrazovanjaRepository extends JpaRepository<ProgramObrazovanja, Integer> {
+public interface ProgramObrazovanjaRepository extends JpaRepository<ProgramObrazovanja, Long> {
 }

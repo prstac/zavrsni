@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @Primary
-public interface PolaznikRepository extends JpaRepository<Polaznik, Integer> {
+public interface PolaznikRepository extends JpaRepository<Polaznik, Long> {
 }

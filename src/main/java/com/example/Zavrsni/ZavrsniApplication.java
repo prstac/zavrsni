@@ -10,4 +10,5 @@ public class ZavrsniApplication {
 		SpringApplication.run(ZavrsniApplication.class, args);
 	}
 
+
 }

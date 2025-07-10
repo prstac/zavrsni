@@ -18,7 +18,7 @@ public class ProgramObrazovanjaService {
     private final ProgramObrazovanjaRepository programObrazovanjaRepository;
 
 
-    public Optional<ProgramObrazovanjaDTO> findByID(Integer id) {
+    public Optional<ProgramObrazovanjaDTO> findByID(Long id) {
         return programObrazovanjaRepository.findById(id).map(ProgramObrazovanjaDTO::new);
     }
 
@@ -30,7 +30,7 @@ public class ProgramObrazovanjaService {
         return Optional.of(new ProgramObrazovanjaDTO(programObrazovanjaRepository.save(new ProgramObrazovanja(programObrazovanjaDTO))));
     }
 
-    public Optional<ProgramObrazovanjaDTO> update(Integer id, ProgramObrazovanjaDTO updatedProgramOBrazovanjaDTO) {
+    public Optional<ProgramObrazovanjaDTO> update(Long id, ProgramObrazovanjaDTO updatedProgramOBrazovanjaDTO) {
         Optional<ProgramObrazovanja> programObrazovanjaOptional = programObrazovanjaRepository.findById(id);
 
         if (programObrazovanjaOptional.isPresent()) {
@@ -44,7 +44,7 @@ public class ProgramObrazovanjaService {
         }
     }
 
-    public void deleteB(Integer id) {
+    public void deleteB(Long id) {
         Optional<ProgramObrazovanja> programObrazovanjaOptiona = programObrazovanjaRepository.findById(id);
         programObrazovanjaOptiona.ifPresent(programObrazovanjaRepository::delete);
     }

@@ -20,7 +20,7 @@ public class UpisService {
         return upisRepository.findAll().stream().map(UpisDTO::new).collect(Collectors.toList());
     }
 
-    public void deleteB(Integer id) {
+    public void deleteB(Long id) {
         Optional<Upis> upisOptional = upisRepository.findById(id);
         upisOptional.ifPresent(upisRepository::delete);
     }
